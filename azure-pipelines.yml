@@ -51,8 +51,8 @@ stages:
           script: |
             # Write your PowerShell commands here.
             #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> 'hello world.txt'
-            Write-Host $(Pipeline.Workspace)
-            Write-Host $(param2)
+            Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
+            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
             Write-Host $param3   
 #      - task: PublishPipelineArtifact@1
 #        inputs:
