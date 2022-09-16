@@ -50,7 +50,14 @@ stages:
             Write-Host $(param2)
             Write-Host $param3
 
+      - task: PowerShell@2
+        displayName: 'run_build > Steps > Task 2...'
+        inputs:
+          targetType: 'inline'
+          script: cat './results/hello world.txt'
+
       - task: PublishPipelineArtifact@1
+        displayName: Publish Pipeline Artifact
         inputs:
           targetPath: '$(Pipeline.Workspace)'
           artifact: 'arti'
