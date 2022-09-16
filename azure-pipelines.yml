@@ -1,26 +1,45 @@
 # Starter pipeline
-
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+
+#trigger:
+#- main
 
 pool:
   name: Self-hosted Tosca
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: hello1
+  displayName: 'Job 1'
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Job 1 > Step 1'
+  - task: PowerShell@2
+    displayName: 'Job 1 > Step 1 > Task 1...'
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your PowerShell commands here.
+        #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
+        $param3 = "number 3"
+        Write-Host $(param1)
+        Write-Host $(param2)
+        Write-Host $param3
 
-- task: PowerShell@2
-  displayName: 'Just some steps...'
-
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      Write-Host $(param1)
-      Write-Host $(param2)
+  - task: PowerShell@2
+    displayName: 'Job 1 > Step 1 > Task 2...'
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your PowerShell commands here.
+        #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> 'hello world.txt'
+        Write-Host $(param1)
+        Write-Host $(param2)
+        Write-Host $param3        
