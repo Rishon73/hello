@@ -28,6 +28,7 @@ stages:
           script: |
             if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
             Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
+            Write-Host "Build.SourcesDirectory: " $(Build.SourcesDirectory)
             Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
             Write-Host "system.JobId: "$(system.JobId)
 
