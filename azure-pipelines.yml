@@ -15,31 +15,37 @@ resources:
 pool:
   name: Self-hosted Tosca
 
-jobs:
-- job: hello1
-  displayName: 'Job 1'
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Job 1 > Step 1'
-  - task: PowerShell@2
-    displayName: 'Job 1 > Step 1 > Task 1...'
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your PowerShell commands here.
-        #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
-        $param3 = "number 3"
-        Write-Host $(param1)
-        Write-Host $(param2)
-        Write-Host $param3
+stages:
+- stage: build
+  jobs:
+    - job: run_build
+      pool:
+        name: Self-hosted Tosca
+      steps:
+      - task: PowerShell@2
+        displayName: 'run_build > Steps > Task 1...'
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your PowerShell commands here.
+            #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
+            $param3 = "number 3"
+            Write-Host $(param1)
+            Write-Host $(param2)
+            Write-Host $param3
+      - task: PowerShell@2
+        displayName: 'run_build > Steps > Task 2...'
+        inputs:
+          targetType: 'inline'
+          script: |
+            # Write your PowerShell commands here.
+            #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> 'hello world.txt'
+            Write-Host $(Pipeline.Workspace)
+            Write-Host $(param2)
+            Write-Host $param3   
+#      - task: PublishPipelineArtifact@1
+#        inputs:
+#          targetPath: '$(Pipeline.Workspace)'
+#          artifact: 'arti'
+#          publishLocation: 'pipeline'
 
-  - task: PowerShell@2
-    displayName: 'Job 1 > Step 1 > Task 2...'
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your PowerShell commands here.
-        #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> 'hello world.txt'
-        Write-Host $(param1)
-        Write-Host $(param2)
-        Write-Host $param3        
