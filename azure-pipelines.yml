@@ -25,7 +25,11 @@ stages:
         displayName: Create results folder
         inputs:
           targetType: 'inline'
-          script: if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
+          script: |
+            if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
+            Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
+            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
+            Write-Host "system.JobId: "$(system.JobId)
 
       - task: PublishPipelineArtifact@1
         inputs:
@@ -34,6 +38,7 @@ stages:
           publishLocation: 'pipeline'
 
 - stage: test
+  dependsOn: build
   jobs:
     - job: reun_tests
       displayName: Job2::Test
@@ -49,15 +54,3 @@ stages:
             Write-Host $(param1)
             Write-Host $(param2)
             Write-Host $param3
-      - task: PowerShell@2
-        displayName: 'run_build > Steps > Task 2...'
-        inputs:
-          targetType: 'inline'
-          script: |
-            # Write your PowerShell commands here.
-            #echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> 'hello world.txt'
-            Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
-            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
-            Write-Host "system.JobId: "$(system.JobId)
-
-
