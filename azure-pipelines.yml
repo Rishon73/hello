@@ -18,7 +18,18 @@ pool:
 stages:
 - stage: build
   jobs:
-    - job: run_build
+    - job: build_test
+      displayName: Build job
+      steps:
+      - task: PowerShell@2
+        displayName: build_test > Steps > task 1
+        inputs:
+          targetType: 'inline'
+          script: Write-Host "Buildiiiiiiing..."
+
+- stage: test
+  jobs:
+    - job: reun_tests
       pool:
         name: Self-hosted Tosca
       steps:
