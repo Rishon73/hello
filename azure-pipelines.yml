@@ -45,7 +45,7 @@ stages:
           script: |
             # Write your PowerShell commands here.
             echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './results/hello world.txt'
-            cp $(Build.SourcesDirectory)/xxx_results.xlm "'$(Build.SourcesDirectory)/results/xxx_results.xml"
+            cp "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results/xxx_results.xml"
             $param3 = "number 3"
             Write-Host $(param1)
             Write-Host $(param2)
