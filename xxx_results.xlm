@@ -9,7 +9,7 @@ Actual value: "8412 Noah Harbors Suite 583, Mikelside, SD, 87601"',UsedValue='{X
 + Passed    DOB {LogInfo='Buffer with name: "DOB" has been set to value: "02/25/2003"',UsedValue='02/25/2003'}
 + Passed    RandomDOB {LogInfo='Buffer with name: "RandomDOB" has been set to value: "10/08/1997"',UsedValue='10/08/1997'}
 + Passed    FakeName {LogInfo='Buffer with name: "FakeName" has been set to value: "Elian"',UsedValue='Elian'}
-+ Passed    FakeLastName {LogInfo='Buffer with name: "FakeLastName" has been set to value: "O'Kon"',UsedValue='O'Kon'}
++ Passed    FakeLastName {LogInfo='Buffer with name: "FakeLastNamed" has been set to value: "O'Kon"',UsedValue='O'Kon'}
 + Passed    FakeGender {LogInfo='Buffer with name: "FakeGender" has been set to value: "Male"',UsedValue='Male'}
 
 + Passed  Launch Tricentis Monitor
