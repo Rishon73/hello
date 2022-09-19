@@ -54,8 +54,9 @@ stages:
         displayName: 'cat...'
         inputs:
           targetType: 'inline'
-          script: cat "$(Build.SourcesDirectory)/results/hello world.txt"
-          script: cat "$(Build.SourcesDirectory)/results/xxx_results.xml"
+          script: |
+            cat "$(Build.SourcesDirectory)/results/hello world.txt"
+            cat "$(Build.SourcesDirectory)/results/xxx_results.xml"
 
       - task: PublishTestResults@2
         inputs:
