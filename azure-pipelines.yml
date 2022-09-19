@@ -25,11 +25,12 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
+            if (!(Test-Path './results2')) {New-Item './results2' -ItemType Directory}
             Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
             Write-Host "Build.SourcesDirectory: " $(Build.SourcesDirectory)
-            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
-            Write-Host "system.JobId: "$(system.JobId)
+            Write-Host "Build.ArtifactStagingDirectory: " $(Build.ArtifactStagingDirectory)
+            Write-Host "System.DefaultWorkingDirectory: " $(System.DefaultWorkingDirectory)
+            Write-Host "system.JobId: " $(system.JobId)
 
 
       - task: PowerShell@2
@@ -37,12 +38,9 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            # Write your PowerShell commands here.
-            if (!(Test-Path "./results")) {New-Item "./results" -ItemType Directory}
-
             echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
-            Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results/xxx_results.xml"
-            Copy-Item "$(Build.SourcesDirectory)/hello world.txt" "$(Build.SourcesDirectory)/results/hello world.txt"
+            Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results2/xxx_results.xml"
+            Copy-Item "$(Build.SourcesDirectory)/hello world.txt" "$(Build.SourcesDirectory)/results2/hello world.txt"
 
       - task: PowerShell@2
         displayName: 'cat...'
