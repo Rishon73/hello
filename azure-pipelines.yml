@@ -17,7 +17,6 @@ pool:
 
 stages:
 - stage: test
-  dependsOn: build
   jobs:
     - job: reun_tests
       steps:
