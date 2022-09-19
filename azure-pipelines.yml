@@ -39,16 +39,16 @@ stages:
           targetType: 'inline'
           script: |
             echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
-            Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results2/xxx_results.xml"
-            Copy-Item "$(Build.SourcesDirectory)/hello world.txt" "$(Build.SourcesDirectory)/results2/hello world.txt"
+            Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" '$(Pipeline.Workspace)/TestResults/xxx_results.xml'
+            Copy-Item "$(Build.SourcesDirectory)/hello world.txt" '$(Pipeline.Workspace)/TestResults/hello world.txt'
 
       - task: PowerShell@2
         displayName: 'cat...'
         inputs:
           targetType: 'inline'
           script: |
-            cat "$(Build.SourcesDirectory)/results2/hello world.txt"
-            cat "$(Build.SourcesDirectory)/results2/xxx_results.xml"
+            cat "$(Pipeline.Workspace)/TestResults/hello world.txt"
+            cat "$(Pipeline.Workspace)/TestResults/xxx_results.xml"
 
       - task: PublishPipelineArtifact@1
         displayName: Publish Pipeline Artifact
@@ -60,4 +60,4 @@ stages:
       - task: PublishTestResults@2
         inputs:
           testResultsFormat: 'JUnit'
-          testResultsFiles: "$(Build.SourcesDirectory)/results2/*_results.xml"
+          testResultsFiles: "$(Pipeline.Workspace)/TestResults/*_results.xml"
