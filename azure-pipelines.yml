@@ -52,12 +52,12 @@ stages:
             cat "$(Build.SourcesDirectory)/results/hello world.txt"
             cat "$(Build.SourcesDirectory)/results/xxx_results.xml"
 
-      - task: PublishPipelineArtifact@1
-        displayName: Publish Pipeline Artifact
-        inputs:
-          targetPath: '$(Pipeline.Workspace)'
-          artifact: 'arti'
-          publishLocation: 'pipeline'
+#      - task: PublishPipelineArtifact@1
+#        displayName: Publish Pipeline Artifact
+#        inputs:
+#          targetPath: '$(Pipeline.Workspace)'
+#          artifact: 'arti'
+#          publishLocation: 'pipeline'
 
       - task: PublishTestResults@2
         inputs:
