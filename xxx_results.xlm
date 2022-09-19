@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><testsuite name="Green Team" tests="1" failures="1" skipped="0" time="6.981976" timestamp="2022-09-18T23:20:37" id="3a06556a-0ff5-8dc1-3082-2893acac8074" log=""><testcase name="CRM | Save and Validats Person | Use DTM Data" time="4.6844259" timestamp="2022-09-18T23:20:37.1827475-04:00" log="- Failed CRM | Save and Validats Person | Use DTM Data {LogInfo='Execution will be continued with the next TestCase, because there was an error in the current TestCase.'}&#xD;&#xA;+ Passed  Prepare Data&#xD;&#xA;+ Passed   TDM | Find a record with State=New&#xD;&#xA;+ Passed   Parse Data&#xD;&#xA;+ Passed    FakeAddress {LogInfo='Buffer with name: &quot;FakeAddress&quot; has been set to value: &quot;8412 Noah Harbors Suite 583, Mikelside, SD, 87601&quot;',UsedValue='8412 Noah Harbors Suite 583, Mikelside, SD, 87601'}&#xD;&#xA;+ Passed    FakeAddress {LogInfo='Verification was successful.&#xD;&#xA;Expression: &quot;== {XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}&quot;&#xD;&#xA;Actual value: &quot;8412 Noah Harbors Suite 583, Mikelside, SD, 87601&quot;',UsedValue='{XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}'}&#xD;&#xA;+ Passed    DOB {LogInfo='Buffer with name: &quot;DOB&quot; has been set to value: &quot;02/25/2003&quot;',UsedValue='02/25/2003'}&#xD;&#xA;+ Passed    RandomDOB {LogInfo='Buffer with name: &quot;RandomDOB&quot; has been set to value: &quot;10/08/1997&quot;',UsedValue='10/08/1997'}&#xD;&#xA;+ Passed    FakeName {LogInfo='Buffer with name: &quot;FakeName&quot; has been set to value: &quot;Elian&quot;',UsedValue='Elian'}&#xD;&#xA;+ Passed    FakeLastName {LogInfo='Buffer with name: &quot;FakeLastName&quot; has been set to value: &quot;O'Kon&quot;',UsedValue='O'Kon'}&#xD;&#xA;+ Passed    FakeGender {LogInfo='Buffer with name: &quot;FakeGender&quot; has been set to value: &quot;Male&quot;',UsedValue='Male'}&#xD;&#xA;&#xD;&#xA;+ Passed  Launch Tricentis Monitor&#xD;&#xA;+ Passed   Start Tricentis Monitor {LogInfo='Started 'C:\DevOpsPackage\Configuration\FullPackage.bat' with arguments '''}&#xD;&#xA;+ Passed   If (Already running Window)&#xD;&#xA;+ Passed    Then&#xD;&#xA;+ Passed     Click Ok&#xD;&#xA;+ Passed      OK {UsedValue='x'}&#xD;&#xA;&#xD;&#xA;- Failed  Save Person | API Request&#xD;&#xA;+ Passed   SavePerson Request&#xD;&#xA;+ Passed    person {LogInfo='Ok'}&#xD;&#xA;+ Passed     FirstName {LogInfo='Ok',UsedValue='Elian'}&#xD;&#xA;+ Passed     LastName {LogInfo='Ok',UsedValue='O'Kon'}&#xD;&#xA;+ Passed     DateOfBirth {LogInfo='Ok',UsedValue='02/25/2003'}&#xD;&#xA;+ Passed     Gender {LogInfo='Ok',UsedValue='Male'}&#xD;&#xA;+ Passed     StreetAddress {LogInfo='Ok',UsedValue='8412 Noah Harbors Suite 583'}&#xD;&#xA;+ Passed     Country {LogInfo='Ok',UsedValue='USA'}&#xD;&#xA;+ Passed     ZipCode {LogInfo='Ok',UsedValue='87601'}&#xD;&#xA;+ Passed     City {LogInfo='Ok',UsedValue='Mikelside'}&#xD;&#xA;+ Passed     Occupation {LogInfo='Ok',UsedValue='Employee'}&#xD;&#xA;- Failed   SavePerson Response {LogInfo='Server Response Time: 90 ms'}&#xD;&#xA;- Failed    Successfull {LogInfo='Verification has failed.&#xD;&#xA;Expected value == &quot;true&quot;&#xD;&#xA;Actual value: &quot;false&quot;'}&#xD;&#xA;+ Passed    ResponseTime {LogInfo='Verification was successful.&#xD;&#xA;Expected value &lt;= &quot;500&quot;&#xD;&#xA;Actual value: &quot;90&quot;',UsedValue='500'}&#xD;&#xA;&#xD;&#xA;"><failure message="Test failure">- Failed CRM | Save and Validats Person | Use DTM Data {LogInfo='Execution will be continued with the next TestCase, because there was an error in the current TestCase.'}
+<?xml version="1.0" encoding="utf-8"?>
+  <testsuites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="Green Team" tests="1" failures="1" skipped="0" time="21.857977" timestamp="2022-09-19T08:48:09" id="3a06556a-0ff5-8dc1-3082-2893acac8074" log="">
+      <testcase name="CRM | Save and Validats Person | Use DTM Data" time="19.245165" timestamp="2022-09-19T08:48:09.8774671-04:00" log="- Failed CRM | Save and Validats Person | Use DTM Data {LogInfo='Execution will be continued with the next TestCase, because there was an error in the current TestCase.'}&#xD;&#xA;+ Passed  Prepare Data&#xD;&#xA;+ Passed   TDM | Find a record with State=New&#xD;&#xA;+ Passed   Parse Data&#xD;&#xA;+ Passed    FakeAddress {LogInfo='Buffer with name: &quot;FakeAddress&quot; has been set to value: &quot;8412 Noah Harbors Suite 583, Mikelside, SD, 87601&quot;',UsedValue='8412 Noah Harbors Suite 583, Mikelside, SD, 87601'}&#xD;&#xA;+ Passed    FakeAddress {LogInfo='Verification was successful.&#xD;&#xA;Expression: &quot;== {XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}&quot;&#xD;&#xA;Actual value: &quot;8412 Noah Harbors Suite 583, Mikelside, SD, 87601&quot;',UsedValue='{XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}'}&#xD;&#xA;+ Passed    DOB {LogInfo='Buffer with name: &quot;DOB&quot; has been set to value: &quot;02/25/2003&quot;',UsedValue='02/25/2003'}&#xD;&#xA;+ Passed    RandomDOB {LogInfo='Buffer with name: &quot;RandomDOB&quot; has been set to value: &quot;01/12/1988&quot;',UsedValue='01/12/1988'}&#xD;&#xA;+ Passed    FakeName {LogInfo='Buffer with name: &quot;FakeName&quot; has been set to value: &quot;Elian&quot;',UsedValue='Elian'}&#xD;&#xA;+ Passed    FakeLastName {LogInfo='Buffer with name: &quot;FakeLastName&quot; has been set to value: &quot;O'Kon&quot;',UsedValue='O'Kon'}&#xD;&#xA;+ Passed    FakeGender {LogInfo='Buffer with name: &quot;FakeGender&quot; has been set to value: &quot;Male&quot;',UsedValue='Male'}&#xD;&#xA;&#xD;&#xA;+ Passed  Launch Tricentis Monitor&#xD;&#xA;+ Passed   Start Tricentis Monitor {LogInfo='Started 'C:\DevOpsPackage\Configuration\FullPackage.bat' with arguments '''}&#xD;&#xA;+ Passed   If (Already running Window)&#xD;&#xA;&#xD;&#xA;- Failed  Save Person | API Request&#xD;&#xA;+ Passed   SavePerson Request&#xD;&#xA;+ Passed    person {LogInfo='Ok'}&#xD;&#xA;+ Passed     FirstName {LogInfo='Ok',UsedValue='Elian'}&#xD;&#xA;+ Passed     LastName {LogInfo='Ok',UsedValue='O'Kon'}&#xD;&#xA;+ Passed     DateOfBirth {LogInfo='Ok',UsedValue='02/25/2003'}&#xD;&#xA;+ Passed     Gender {LogInfo='Ok',UsedValue='Male'}&#xD;&#xA;+ Passed     StreetAddress {LogInfo='Ok',UsedValue='8412 Noah Harbors Suite 583'}&#xD;&#xA;+ Passed     Country {LogInfo='Ok',UsedValue='USA'}&#xD;&#xA;+ Passed     ZipCode {LogInfo='Ok',UsedValue='87601'}&#xD;&#xA;+ Passed     City {LogInfo='Ok',UsedValue='Mikelside'}&#xD;&#xA;+ Passed     Occupation {LogInfo='Ok',UsedValue='Employee'}&#xD;&#xA;- Failed   SavePerson Response {LogInfo='Server Response Time: 1142 ms'}&#xD;&#xA;- Failed    Successfull {LogInfo='Verification has failed.&#xD;&#xA;Expected value == &quot;true&quot;&#xD;&#xA;Actual value: &quot;false&quot;'}&#xD;&#xA;- Failed    ResponseTime {LogInfo='Verification has failed.&#xD;&#xA;Expected value &lt;= &quot;500&quot;&#xD;&#xA;Actual value: &quot;1142&quot;'}&#xD;&#xA;&#xD;&#xA;">
+        <failure message="Test failure">- Failed CRM | Save and Validats Person | Use DTM Data {LogInfo='Execution will be continued with the next TestCase, because there was an error in the current TestCase.'}
 + Passed  Prepare Data
 + Passed   TDM | Find a record with State=New
 + Passed   Parse Data
@@ -7,17 +11,14 @@
 Expression: "== {XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}"
 Actual value: "8412 Noah Harbors Suite 583, Mikelside, SD, 87601"',UsedValue='{XB[FakeAddress]}, {XB[FakeCity]}, {XB[FakeState]}, {XB[FakeZip]}'}
 + Passed    DOB {LogInfo='Buffer with name: "DOB" has been set to value: "02/25/2003"',UsedValue='02/25/2003'}
-+ Passed    RandomDOB {LogInfo='Buffer with name: "RandomDOB" has been set to value: "10/08/1997"',UsedValue='10/08/1997'}
++ Passed    RandomDOB {LogInfo='Buffer with name: "RandomDOB" has been set to value: "01/12/1988"',UsedValue='01/12/1988'}
 + Passed    FakeName {LogInfo='Buffer with name: "FakeName" has been set to value: "Elian"',UsedValue='Elian'}
-+ Passed    FakeLastName {LogInfo='Buffer with name: "FakeLastNamed" has been set to value: "O'Kon"',UsedValue='O'Kon'}
++ Passed    FakeLastName {LogInfo='Buffer with name: "FakeLastName" has been set to value: "O'Kon"',UsedValue='O'Kon'}
 + Passed    FakeGender {LogInfo='Buffer with name: "FakeGender" has been set to value: "Male"',UsedValue='Male'}
 
 + Passed  Launch Tricentis Monitor
 + Passed   Start Tricentis Monitor {LogInfo='Started 'C:\DevOpsPackage\Configuration\FullPackage.bat' with arguments '''}
 + Passed   If (Already running Window)
-+ Passed    Then
-+ Passed     Click Ok
-+ Passed      OK {UsedValue='x'}
 
 - Failed  Save Person | API Request
 + Passed   SavePerson Request
@@ -31,12 +32,15 @@ Actual value: "8412 Noah Harbors Suite 583, Mikelside, SD, 87601"',UsedValue='{X
 + Passed     ZipCode {LogInfo='Ok',UsedValue='87601'}
 + Passed     City {LogInfo='Ok',UsedValue='Mikelside'}
 + Passed     Occupation {LogInfo='Ok',UsedValue='Employee'}
-- Failed   SavePerson Response {LogInfo='Server Response Time: 90 ms'}
+- Failed   SavePerson Response {LogInfo='Server Response Time: 1142 ms'}
 - Failed    Successfull {LogInfo='Verification has failed.
 Expected value == "true"
 Actual value: "false"'}
-+ Passed    ResponseTime {LogInfo='Verification was successful.
+- Failed    ResponseTime {LogInfo='Verification has failed.
 Expected value &lt;= "500"
-Actual value: "90"',UsedValue='500'}
+Actual value: "1142"'}
 
-</failure></testcase></testsuite></testsuites>
+</failure>
+      </testcase>
+    </testsuite>
+  </testsuites>
