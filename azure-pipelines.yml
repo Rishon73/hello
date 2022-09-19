@@ -44,6 +44,8 @@ stages:
           targetType: 'inline'
           script: |
             # Write your PowerShell commands here.
+            if (!(Test-Path "./results")) {New-Item "./results" -ItemType Directory}
+
             echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
             Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results/xxx_results.xml"
             Copy-Item "$(Build.SourcesDirectory)/hello world.txt" "$(Build.SourcesDirectory)/results/hello world.txt"
