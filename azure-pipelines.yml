@@ -25,7 +25,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            if (!(Test-Path './results2')) {New-Item './results2' -ItemType Directory}
+            #if (!(Test-Path './results2')) {New-Item './results2' -ItemType Directory}
             Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
             Write-Host "Build.SourcesDirectory: " $(Build.SourcesDirectory)
             Write-Host "Build.ArtifactStagingDirectory: " $(Build.ArtifactStagingDirectory)
@@ -47,8 +47,8 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            cat "$(Build.SourcesDirectory)/results/hello world.txt"
-            cat "$(Build.SourcesDirectory)/results/xxx_results.xml"
+            cat "$(Build.SourcesDirectory)/results2/hello world.txt"
+            cat "$(Build.SourcesDirectory)/results2/xxx_results.xml"
 
       - task: PublishPipelineArtifact@1
         displayName: Publish Pipeline Artifact
@@ -60,4 +60,4 @@ stages:
       - task: PublishTestResults@2
         inputs:
           testResultsFormat: 'JUnit'
-          testResultsFiles: "$(Build.SourcesDirectory)/results/*_results.xml"
+          testResultsFiles: "$(Build.SourcesDirectory)/results2/*_results.xml"
