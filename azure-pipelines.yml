@@ -16,27 +16,28 @@ pool:
   name: Self-hosted Tosca
 
 stages:
-- stage: build
-  jobs:
-    - job: build_test
-      displayName: Job1::Build
-
 - stage: test
   dependsOn: build
   jobs:
     - job: reun_tests
-      displayName: Job2::Test
       steps:
-      - task: PowerShell@2
-        displayName: Create results folder
+#      - task: PowerShell@2
+#        displayName: Create results folder
+#        inputs:
+#          targetType: 'inline'
+#          script: |
+#            if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
+#            Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
+#            Write-Host "Build.SourcesDirectory: " $(Build.SourcesDirectory)
+#            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
+#            Write-Host "system.JobId: "$(system.JobId)
+
+      - task: PublishPipelineArtifact@1
+        displayName: Publish Pipeline Artifact
         inputs:
-          targetType: 'inline'
-          script: |
-            if (!(Test-Path './results')) {New-Item './results' -ItemType Directory}
-            Write-Host "Pipeline.Workspace: " $(Pipeline.Workspace)
-            Write-Host "Build.SourcesDirectory: " $(Build.SourcesDirectory)
-            Write-Host "Build.ArtifactStagingDirectory:" $(Build.ArtifactStagingDirectory)
-            Write-Host "system.JobId: "$(system.JobId)
+          targetPath: '$(Pipeline.Workspace)'
+          artifact: 'arti'
+          publishLocation: 'pipeline'
 
       - task: PowerShell@2
         displayName: 'run_build > Steps > Task 1...'
@@ -47,24 +48,13 @@ stages:
             echo (Get-Date -Format "MM/dd/yyyy - HH:mm:ss-ffff") >> './hello world.txt'
             Copy-Item "$(Build.SourcesDirectory)/xxx_results.xlm" "$(Build.SourcesDirectory)/results/xxx_results.xml"
             Copy-Item "$(Build.SourcesDirectory)/hello world.txt" "$(Build.SourcesDirectory)/results/hello world.txt"
-            $param3 = "number 3"
-            Write-Host $(param1)
-            Write-Host $(param2)
-            Write-Host $param3
 
       - task: PowerShell@2
-        displayName: 'run_build > Steps > Task 2...'
+        displayName: 'cat...'
         inputs:
           targetType: 'inline'
-          script: cat './results/hello world.txt'
+          script: cat "$(Build.SourcesDirectory)/results/hello world.txt"
 
-      - task: PublishPipelineArtifact@1
-        displayName: Publish Pipeline Artifact
-        inputs:
-          targetPath: '$(Pipeline.Workspace)'
-          artifact: 'arti'
-          publishLocation: 'pipeline'
-          
       - task: PublishTestResults@2
         inputs:
           testResultsFormat: 'JUnit'
